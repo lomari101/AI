@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>صديقي الذكي</title>
+    <style>
+        body {
+            background: #111;
+            color: #fff;
+            font-family: sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .chat-container {
+            width: 400px;
+            max-width: 95vw;
+            background: #1b1b1b;
+            border-radius: 12px;
+            padding: 16px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.6);
+        }
+
+        .avatar-wrapper {
+            text-align: center;
+            margin-bottom: 12px;
+        }
+
+        .avatar {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #444;
+            transition: transform 0.2s ease;
+        }
+
+        .avatar.talking {
+            animation: talking 0.3s infinite alternate;
+        }
+
+        @keyframes talking {
+            from { transform: scale(1); }
+            to   { transform: scale(1.03); }
+        }
+
+        .messages {
+            background: #111;
+            border-radius: 8px;
+            padding: 8px;
+            height: 260px;
+            overflow-y: auto;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .msg {
+            margin: 4px 0;
+            padding: 6px 8px;
+            border-radius: 6px;
+            max-width: 90%;
+        }
+
+        .msg.user {
+            background: #2b5cff;
+            margin-left: auto;
+        }
+
+        .msg.bot {
+            background: #333;
+            margin-right: auto;
+        }
+
+        .input-row {
+            display: flex;
+            gap: 6px;
+        }
+
+        .input-row input {
+            flex: 1;
+            padding: 6px 8px;
+            border-radius: 6px;
+            border: none;
+            outline: none;
+        }
+
+        .input-row button {
+            padding: 6px 10px;
+            border-radius: 6px;
+            border: none;
+            background: #2b5cff;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .input-row button:disabled {
+            background: #555;
+            cursor: default;
+        }
+    </style>
+</head>
+<body>
+
+<div class="chat-container">
+    <div class="avatar-wrapper">
+        <img src="friend.jpg" alt="صديقي" class="avatar" id="avatar">
+        <div>صديقي الذكي 🤖</div>
+    </div>
+
+    <div class="messages" id="messages"></div>
+
+    <div class="input-row">
+        <input type="text" id="userInput" placeholder="اكتب رسالة لصديقك..." />
+        <button id="sendBtn">إرسال</button>
+    </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

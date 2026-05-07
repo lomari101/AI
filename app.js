@@ -41,7 +41,7 @@ userInputEl.addEventListener('keydown', e => {
 
 // 🔥 ذكاء اصطناعي عبر OpenRouter (أفضل حل لـ GitHub Pages)
 async function callAI(userText) {
-    const response = await fetch("https://ai-proxy-ilf3.vercel.app/api/chat", {
+    const response = await fetch("https://ai-proxy-es3l.vercel.app/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ message: userText })

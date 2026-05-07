@@ -41,29 +41,16 @@ userInputEl.addEventListener('keydown', e => {
 
 // 🔥 ذكاء اصطناعي عبر OpenRouter (أفضل حل لـ GitHub Pages)
 async function callAI(userText) {
-    const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
+    const response = await fetch("https://ai-proxy-ilf3.vercel.app/api/chat", {
         method: "POST",
-        headers: {
-            "Authorization": "Bearer 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",
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            model: "google/gemma-2-9b-it",
-            messages: [
-                { role: "system", content: "كن صديقًا ودودًا يتحدث باللهجة العربية." },
-                { role: "user", content: userText }
-            ]
-        })
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message: userText })
     });
 
     const data = await response.json();
-
-    try {
-        return data.choices[0].message.content;
-    } catch {
-        return "لم أفهم رسالتك يا صديقي 😅";
-    }
+    return data.choices[0].message.content;
 }
+
 
 
 // 🔊 الصوت + تحريك الصورة
